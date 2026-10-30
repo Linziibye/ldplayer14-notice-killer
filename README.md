@@ -14,7 +14,7 @@
 
 关键点：那个「不再提示」开关（写入 `vms\config\leidians.config` 的 `noiceRemoteTipEX`）**根本不是**这个弹窗的开关，而且该配置文件每次启动都会被重写。
 
-## 2. 真正的机制
+## 2. 机制
 
 弹窗来自广告模块 `ld5567.exe`（与 `ldplayerpartner.exe` 同体），由服务 `LDPlayerSvr` 每 30 分钟拉起一次。
 
@@ -108,7 +108,6 @@ powershell -ExecutionPolicy Bypass -File .\restore.ps1
 | `check-record.ps1` | 复查。打印三个记录文件的内容、属性、修改时间，并标注是否处于已修复状态 |
 | `restore.ps1` | 一键回滚。重置 ACL、去只读、把最新 `.bak_*` 拷回 |
 | `scan-strings.ps1` | 侦察工具。从雷电二进制中提取通知/广告字符串、URL、路径模板，用于新版本重新定位 |
-| `legacy/fix_ld_notice_v1.ps1` | 第一版，已废弃，留档说明「`DENY (W)` 连读一起拒」的坑 |
 
 `scan-strings.ps1` 的 `-Mode`：
 
